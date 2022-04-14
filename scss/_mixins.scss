@@ -1,0 +1,51 @@
+//*************************                    MIXINS                                **********************************/
+@import "mapa";
+
+//MIXINS PARA EL SISTEMA DE MEDIAS QUERIS
+// @mixin media-system($breakpoint) {
+//     @if map-has-key($breakpoints , $breakpoint ) { // Validacion del mapa de breakpoints
+//         @media screen and ( min-width: map-get($breakpoints, $breakpoint)) {
+//             @content;
+//         }
+//     }@else {
+//         @warn "El valor '#{breakpoint}' no ha sido declarado en el mapa como un breackpoint";
+//     }
+
+    
+// }
+
+//*     <-------------Layout y estilos en la barra de navegacion-encabezado-------------->                */
+@mixin box-navegacion ($justify, $padding, $heigth) {
+    justify-content: $justify;
+    padding: $padding;
+    height: $heigth;
+}
+
+@mixin btn-rrss {
+    display: inline-flex;
+    color: $color2;
+    background: $fondo1;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    border: solid 2px $color2;
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: transform 0.4s;
+
+}
+
+@mixin box-navegacion-mob {
+    position:absolute;
+    top:4em;
+    left: 40%;
+    width: 60%;
+    height: 100vh;
+    background-color: rgba(1, 1, 1,0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+    transition: 0.3s ease-in-out;
+}

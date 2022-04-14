@@ -1,0 +1,347 @@
+/*-------------------------------------------------------------------------------------------------------------------
+****************************                        Estructura                              ***************************
+----------------------------------------------------------------------------------------------------------------------*/
+//importacion variables y secciones SCSS
+@import "mixins";
+@import "colores";
+@import "tipografias";
+
+
+/*----------------------------------------------------------------------------------------------------------*/
+/*]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]>    MOBILE FIRST     <[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[*/
+/*----------------------------------------------------------------------------------------------------------*/
+@media(max-width: 480px){
+    /*-------------->                      ESTILOS GENERALES                    <---------------************/
+
+    /*     <-------------Layout y estilos en la barra de navegacion-encabezado-------------->                */
+    .menu-navegacion{ /* Disposicion de elementos*/
+        display:flex;
+        align-items: center;
+        background: $fondo1;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        
+        @include box-navegacion (space-between, 1.2em, 4em);
+        .logo-navegacion{ /*estilos al logo de la marca*/
+            width: $w-logo-sm;
+            cursor: pointer;
+        }
+        h1{ /*ocultar el titulo de la marca*/ 
+            display: none;
+        }
+        .nav-label { /*Estilos al menu hamburguesa*/
+            font-size: $fs-nav-label-sm;
+            color: $color3;
+            cursor: pointer;
+            padding: 5px;
+        }
+        .nav-input{ /*ocultar el check box del imput*/
+            display:none;
+            &:checked + .navegacion { /*Busqueda y mostrar menu navegacion*/
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+        }
+        .navegacion{ /*Estilos a la ventana del menu navegacion*/
+           @include box-navegacion-mob;
+            li { /*Estilos a cada enlace de lanavegacion lista*/
+                list-style: none;
+                width: 100%;
+                border-bottom: solid 1px $color3;
+                text-align: center;
+                &:hover { /*Efecto del cursor*/
+                    background: $fondo3;
+                    transition: 0.2s;
+                }
+            }
+            .enlaceNavegacion { /*Estilos a cada enlace de lanavegacion*/
+                text-decoration: none;
+                text-transform: uppercase;
+                font-size: $fs-enlacenavegacion-sm;
+                cursor: pointer;
+                color: $color3;
+                letter-spacing: 2px;
+                font-family: $fuente2;
+                line-height: 60px;
+                &:hover { /*efecto del cursor*/
+                    color: $color1;
+                    font-weight: bolder;
+                }
+            }
+        }
+    }
+    /*                                  Estilos particulares a los elementos                                     */
+    
+    h2{ /*Estilos a los subtitulos*/
+        background: $fondo5;
+        height: 2.5em;
+        color: $color2;
+        width: 100%;
+        min-width: 20rem;
+        padding: 0.7em 0;
+        text-align: center;
+        font-size: $fs-h2-sm;
+        font-family: $fuente2;
+
+    }
+
+    /*                    <-------------Layout y estilos en el footer--------------->                        */
+    footer { /*Justificaciones al contenedor*/
+        background: $fondo4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 0px;
+        gap: 10px;
+        .botones-rrss {
+            a {
+                @include btn-rrss; /*Estilos a los botones de RRSS*/
+                height: $h-btnrrss-sm;
+                width: $w-btnrrss-sm;
+                font-size: $fs-rrss-sm;
+            
+            }
+            @each $name, $bg-rrss in $colores-rrss{
+                .#{$name}:hover{
+                    transform: scale(1.3);
+                    background-color: $bg-rrss;
+                }
+            }
+        }
+        h4 { /*Estilos al texto del pie de pagina*/
+            color: $color2;
+            font-size: $fs-h4-sm;
+            word-spacing: 5px;
+            font-family: $fuente2;
+            font-weight:lighter;
+        }
+    }
+
+   /***************------------------------ ESTILOS PARA EL INDEX-------------------------------************/
+    .contenedorGeneralIndex{ /*Justificaciones y layout del cuerpo index*/
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background: $fondo3;
+        margin-top: $m-top-sm;
+        .tituloScroll { /*Estilos a cada subtitulo*/
+            height: 2.2em;
+            background-color: #242424;
+            color: $color2;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: $fs-tituloscroll-sm;
+            font-weight: bold;
+            padding: calc((2.2em - 1em)/2);
+            font-family: $fuente3;
+        }
+    }
+    .imagenIndex{ /*Justificaciones de tamano a cada imagen del INDEX*/
+        width: 100%;
+        max-width: 640px;
+        height: auto;
+        padding: 5px;
+    }
+    
+    .columnafotos{ /*Justificaciones al contenido de imagenes*/
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    /****************------------------------ ESTILOS PARA SOBRE MI-------------------------------************/
+    .seccion-about{ /*Disposicion de los elementos justificaciones*/
+        margin-top: $m-top-sm;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-image: url(../media/autoretrato-4.jpg);
+        background-position: center center;
+        background-size: cover;
+        height: 100vh;
+    }
+    .contParrafoAbout{ /*Estilo al contendor de los parrafos - posicionamiento de sus padding*/
+        padding:  0px 15px 10px 20px;  
+    }
+    .contParrafoAbout p{ /*Estilo a los parrafos y su fondo*/
+        background: rgba(0,0,0,0.5);
+        color: $fondo3;
+        border-radius: 5px;
+    }
+    
+    /****************------------------------ ESTILOS  PARA PORTAFOLIO---------------------------************/
+    .seccion-portfolio{/*Justificaciones al contenido de portafolio*/
+        display: flex;
+        flex-direction: column;
+        margin-top:$m-top-sm;
+        box-sizing: border-box;
+        h3 {
+            padding: 15px;
+        }
+        p {
+            padding: 15px;
+        }
+        
+    }
+    
+    .galeria{
+        list-style: none;
+        padding: 5%;
+        
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        img { /*--Propiedades a las imagenes de la galeria--*/
+            width: 100%;
+            max-width: 120px;
+            border: solid 1px $color4;
+            border-radius: 5px;
+        }
+    }
+    
+    .modal{/* Estilos al modal*/
+        display: none;
+        &:target { /*Fondo contenedor de la vista modal*/
+            display: block;
+            position: fixed;
+            background: rgba(0, 0, 0, 0.6);
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .foto{ /*Propiedades del contenedor de la imagen en modo vista modal*/
+            width: 100%;
+            height: 70%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            a{ /* Estilos a los signos <  > */
+                color: $color2;
+                font-size: 50px;
+                text-decoration: none;
+                margin: 0px 10px;
+                &:nth-child(2){ /* Justificacion de los signos < X >*/
+                    margin-top: 80px;
+                    height: 80%;
+                    flex-shrink: 2;
+                }
+            }
+            img { /* Propiedades a la imagen en modo modal */
+                width: 350px;
+                height: auto;
+                max-width: 100%;
+                border: solid 3px $color2;
+                box-sizing: border-box;
+            }
+        }
+        .cerrar{ /* Propiedades al boton de cerrar en vista modal*/
+            display: block;
+            background: $color2;
+            width: 35px;
+            height: 35px;
+            margin: 40px auto;
+            text-align: center;
+            text-decoration: none;
+            font-size: 20px;
+            color: $color1;
+            padding: 8px;
+            border-radius: 50%;
+            line-height: 17px;
+        }
+    }
+    
+    /****************--------------- ESTILOS PARA CONTACTO-------------------------------************/
+    .cuerpo-contacto{ /*Posicionamiento y justificacion del cuerpo de*/
+        margin-top: $m-top-sm;
+    }
+    .cont-contacto2{
+        padding: 15px;
+    }
+    .formcontacto{/* Estilos al Form de contacto */
+        margin: 1em auto;
+        border-radius: 5px;
+        padding: 10%;
+        width: 90%;
+        text-align: left;
+        line-height: 20px;
+        background: $fondo6;
+        color: $fondo5; 
+    }
+    .descripcion2{ /*Descripcion del formulario de contacto*/
+        width: 100%;
+        height: 50px;
+    }
+
+    /****************--------------- ESTILOS PARA OPINIONES-------------------------------************/
+    .cuerpo-opiniones{ /*Justificaciones*/
+        margin-top: $m-top-sm;
+        width: 100%;
+        background-image: url(../media/street-4.jpg);
+        background-position: center center;
+        background-size: cover;
+        .caja-opiniones{ /* Justificaciones al contenido - alineado de box opiniones*/
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            gap: 20px;
+        }
+        .box-opinion{ /*Estilos a cada opinion*/
+            background: rgba(255, 255, 255, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+            h3{ /*Estilos a name de las opiniones*/
+                font-size: 1em;
+            }
+            p { /*Estilos al contenido de parrafos opiniones*/
+                font-size: 1em;
+                font-family: 'Quicksand', sans-serif;
+            }
+        }
+        .formulario-opiniones{
+            padding: 5%;
+        }
+        legend{ /*Estilos al legend del formulario de opiniones*/
+            color: $color1;
+            text-transform: uppercase;
+            text-align: center;
+            padding-top: 10px;
+            font-size: 16px;
+        }
+        .contenedor-formulario{/* Estilos al formulario de Opiniones*/
+            padding: 1em;
+            margin: 2.5%;
+            height: 10%;
+            width: 95%;
+            text-align: left;
+            color: $color1;
+            font-size: 1em;
+            font-weight: bolder;
+            border-radius: 7px;
+        }
+        .inform{ /*Estilos a los input del formulario*/
+            line-height: 20px;
+            height: 2em;
+            width: 100%;
+        }
+        .descripcion1{ /*Estilos a la descripcion opiniones*/
+            width: 100%;
+            height: 4em;
+        }   
+        .bottons{ /* Estilos al boton enviar Form */
+            width: 100%;
+            height: 2em;
+            color: $color2;
+            background: $fondo5;
+            cursor: pointer;
+    
+        } 
+    }
+   
+}
+

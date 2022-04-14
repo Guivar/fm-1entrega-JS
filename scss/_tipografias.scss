@@ -1,0 +1,38 @@
+//*--------------                   Estilos a tipografias y contenido de texto                       ---------------*/
+
+//Estilos de fuentes a usar 
+//*Fuentes importadas Google-fonts*/ 
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Nanum+Gothic:wght@400;800&family=Quicksand:wght@400;700&family=Raleway:wght@300&display=swap');
+
+//*Estilos generales para todos los HTML*/
+body { /* Estilo de fuente para todo*/
+    font-family: 'Quicksand', sans-serif;
+}
+
+//*Tipos de fuentes a usar*/
+//Definicion del tipo de fuente a usar por texto 
+$fuente1: 'Audiowide', cursive; //Fuente para los titulos H1
+$fuente2: 'Raleway', sans-serif; // Fuente para subtitulos H2, titulos y texto relevantes
+$fuente3: 'Nanum Gothic', sans-serif; // Fuente para el titulo scroll
+
+//Tamanos de fuentes a usar 
+$fs-enlacenavegacion-sm: 0.9em;
+$fs-enlacenavegacion-lg: 1em;
+
+$fs-tituloscroll-sm:0.9em;
+
+$fs-h2-sm:1.0em;
+$fs-h2-md:1.1em;
+$fs-h2-lg:1.2em;
+
+$fs-h4-sm:0.8em;
+$fs-h4-md:0.9em;
+$fs-h4-lg:1em;
+
+$fs-nav-label-sm:1.9em;
+$fs-nav-label-md:2em;
+
+$fs-rrss-sm:1.2em;
+$fs-rrss-md:1.2em;
+$fs-rrss-lg:1.5em;
+
